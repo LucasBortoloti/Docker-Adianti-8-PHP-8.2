@@ -1,0 +1,18 @@
+// .devcontainer/devcontainer.json
+{
+    "name": "My Dev Container",
+    "dockerFile": "../Dockerfile", // Caminho conforme a localização real do Dockerfile
+    "forwardPorts": [
+        8080
+    ],
+    "remoteUser": "usuario",
+    "workspaceMount": "source=/var/www/html/adianti8,target=/var/www/html/adianti8,type=bind,consistency=cached",
+    "appPort": [
+        8080
+    ],
+    "runArgs": [
+        "--network=host"
+    ],
+    "workspaceFolder": "/var/www/html/adianti8",
+    "postStartCommand": "php-fpm8.2 && nginx -g 'daemon off;'"
+}
